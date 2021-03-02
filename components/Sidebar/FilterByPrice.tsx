@@ -1,3 +1,6 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function FilterByPrice() {
   return (
     <div className="screen flex flex-column items-start">
@@ -23,7 +26,8 @@ export default function FilterByPrice() {
             placeholder="Max"
           />
           <button className="shadow bg-mupurple w-auto flex justify-end items-center focus:outline-none text-white p-2 rounded-md">
-            <i className="fas fa-search"></i>
+            <FontAwesomeIcon icon={faSearch} />            
+            {/* <i className="fas fa-search"></i> */}
           </button>
         </div>
       </div>

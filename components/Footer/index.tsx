@@ -1,3 +1,8 @@
+// import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function MainLogo () {
   return (<img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />)
 }
@@ -50,29 +55,30 @@ export default function Footer() {
       <FooterElement>
         <Title>Additional Links</Title><ul className="text-mupurple">
           <li>
-            <span className="bullet"><i className="fas fa-link" aria-hidden="true"></i></span>
+            <FontAwesomeIcon icon={faLink} />
             <a href="https://memeunity.com/#roadmap" target="_blank" className="ml-3">Roadmap</a>
           </li>
           <li>
-            <span className="bullet"><i className="fas fa-link" aria-hidden="true"></i></span>
+            <FontAwesomeIcon icon={faLink} />
             <a href="https://docs.google.com/document/d/1hzSz46MQm8Bn4ytWL4Op-LPDWfV7w_NYDMOxTYqFYSs/edit?usp=sharing" target="_blank" className="ml-3">Tokenomics</a>?
           </li>
           <li>
-            <span className="bullet"><i className="fas fa-link" aria-hidden="true"></i></span>
+            <FontAwesomeIcon icon={faLink} />
             <a href="https://docs.google.com/document/d/1-GLSxMDTp29buL8rljzrCB7k6lw8mU4FcIrTpcu_pYM/edit?usp=sharing" target="_blank" className="ml-3">Whitepaper</a>?
           </li>
           <li>
-            <span className="bullet"><i className="fas fa-link" aria-hidden="true"></i></span>
+            <FontAwesomeIcon icon={faLink} />
             <a href="https://www.phantasma.io/wallets" target="_blank" className="ml-3">Phantasma Wallet</a>
           </li>
         </ul>
       </FooterElement>
       <FooterElement>
+        
         <Title>Contact us</Title>
         <p>Contact us and the community on Telegram or Discord.</p>
         <div className="flex flex-row justify-center items-center h-10 mt-2">
-          <div className="w-10 text-2xl"><i className="fab fa-telegram" aria-hidden="true"></i></div>
-          <div className="w-10 text-2xl ml-4"><i className="fab fa-discord" aria-hidden="true"></i></div>
+          <div className="w-10 text-2xl"><FontAwesomeIcon icon={faTelegram} /></div>
+          <div className="w-10 text-2xl ml-4"><FontAwesomeIcon icon={faDiscord} /></div>
         </div>
       </FooterElement>
       <FooterElement>

@@ -1,6 +1,6 @@
-export default function SearchBar() {
+export default function SearchBar(props) {
   return (
-    <div className="shadow flex w-5/12">
+    <div className={"shadow flex w-5/12 " + props.className || ""} >
       <input
         className="w-full rounded-l p-2 bg-inputbg focus:outline-none focus:ring-1 focus:ring-offset-mupurple"
         type="text"

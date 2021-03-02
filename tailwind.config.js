@@ -33,6 +33,14 @@ module.exports = {
       //   800: "#23321d",
       //   900: "#11190e",
       // },
+      
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1248px',
+      '2xl': '1536px',
+    },
       extend: {},
     },
     fontFamily: {

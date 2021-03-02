@@ -17,8 +17,8 @@ export default function Tiers() {
     "Titanic",
     "Nani",
   ];
-  return <>{tiers.map((tier) => (
-    <li className="flex flex-row items-center mb-2 font-semibold">
+  return <>{tiers.map((tier, i) => (
+    <li className="flex flex-row items-center mb-2 font-semibold" key={i}>
       <TierIcon />
       <div>{tier}</div>
     </li>

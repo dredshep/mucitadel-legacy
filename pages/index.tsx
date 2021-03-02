@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Toolbar from "../components/Toolbar";
 import Footer from "../components/Footer";
+import Head from 'next/head'
 
 
 function Content() {
@@ -35,6 +36,10 @@ function Logo() {
 export default function Home() {
   return (
     <div className="App text-white bg-mainbg min-h-screen">
+      <Head>
+        <title>MU Citadel - the tree where memes grow</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar />
       <Content />
       <Footer/>
