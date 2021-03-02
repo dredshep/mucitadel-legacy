@@ -186,7 +186,7 @@ function SeriesDetails() {
 
 function RelatedSection() {
   const title = <div className="text-3xl font-bold mb-9 mt-10">Related Cards</div>
-  const cards = <div className="flex justify-center w-full box-border overflow-hidden"><div>{Card2}</div> <div className="w-10 flex-shrink-0"></div> <div>{Card2}</div></div>
+  const cards = <div className="flex justify-center w-full box-border overflow-hidden"><div><Card2 /></div> <div className="w-10 flex-shrink-0"></div> <div><Card2 /></div></div>
   return (<>{title} {cards}</>)
 }
 

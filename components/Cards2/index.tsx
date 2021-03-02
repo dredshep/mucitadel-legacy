@@ -1,4 +1,4 @@
-function Card2 (props) {
+export function Card2 (props) {
   return (
     <div {...props}>
       <div className="rounded-xl font-title bg-asidebg overflow-hidden">
