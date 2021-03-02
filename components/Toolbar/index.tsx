@@ -3,10 +3,10 @@ import SortPicker from './SortPicker'
 
 export default function Toolbar() {
   return (
-    <div className="mx-4 mt-4 rounded-xl overflow-hidden">
-      <div className="flex w-full bg-asidebg h-16 justify-around px-60">
+    <div className="mx-10 mt-10 rounded-xl box-border overflow-hidden">
+      <div className="flex bg-asidebg h-16">
         {/* margin container */}
-        <div className="h-full flex items-center w-full justify-between">
+        <div className="mx-auto h-full flex items-center justify-between">
           {/* Currency section */}
           <div className="h-full flex items-center">
             <div className="font-semibold font-title text-secondary mr-4">
@@ -17,7 +17,7 @@ export default function Toolbar() {
             </div>
           </div>
           {/* Sort section */}
-          <div className="h-full flex items-center justify-between w-60 ml-20">
+          <div className="h-full flex items-center justify-between w-96 ml-20">
             <div className="font-semibold font-title text-secondary">SORT</div>
             <div>
               <SortPicker />

@@ -9,7 +9,7 @@ function Content() {
   return (
     <div className="flex flex-row h-full">
       <Sidebar />
-      <div className="flex flex-col items-center w-full box-border">
+      <div className="inline-flex flex-col box-border">
         <Toolbar />
         <Cards2 />
       </div>
