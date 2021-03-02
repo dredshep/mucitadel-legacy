@@ -3,7 +3,7 @@ import SortPicker from './SortPicker'
 
 export default function Toolbar() {
   return (
-    <div className="mx-10 mt-10 rounded-xl box-border overflow-hidden">
+    <div className="mx-10 2xl:mx-auto 2xl:w-full mt-10 rounded-xl box-border overflow-hidden max-w-6xl">
       <div className="flex bg-asidebg h-16">
         {/* margin container */}
         <div className="mx-auto h-full flex items-center justify-between">
