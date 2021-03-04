@@ -25,7 +25,7 @@ import FilterByTier from "./FilterByTier";
 //   }, [ref]);
 // }
 
-export default function Sidebar(props: { display: "hidden" | "flex" }) {
+export default function Sidebar() {
   const [sidebarIsHidden, showSidebar] = React.useState(false)
   function showSidebarCommand() {
     // alert(sidebarIsHidden)
