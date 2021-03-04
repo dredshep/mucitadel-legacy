@@ -10,7 +10,7 @@ function MainLogo () {
 
 function Logo() {
   return (
-    <div className="flex flex-row items-center w-48 mx-auto xl:mx-0 justify-between">
+    <div className="flex flex-row items-center w-48 mx-auto lg:mx-0 justify-between">
       <MainLogo />
       <div className="font-title text-xl font-bold tracking-wider">
         MU&nbsp;Citadel
@@ -67,11 +67,11 @@ function NavRightSide() {
   }
 
   return (
-    <div className="text-3xl flex xl:w-64 justify-between ">
-      <FontAwesomeIcon icon={faPlusSquare} className="hidden xl:flex"/>
-      <FontAwesomeIcon icon={faTh}  className="xl:flex hidden"/>
-      <FontAwesomeIcon icon={faBell}  className="xl:flex hidden"/>
-      <FontAwesomeIcon icon={faChartLine}  className="xl:flex hidden"/>
+    <div className="text-3xl flex lg:w-64 justify-between ">
+      <FontAwesomeIcon icon={faPlusSquare} className="hidden lg:flex"/>
+      <FontAwesomeIcon icon={faTh}  className="lg:flex hidden"/>
+      <FontAwesomeIcon icon={faBell}  className="lg:flex hidden"/>
+      <FontAwesomeIcon icon={faChartLine}  className="lg:flex hidden"/>
       <div ref={wrapperRef} onClick={showPopdownCommand} className="flex flex-column"><FontAwesomeIcon icon={faUserCircle} className="cursor-pointer"/> 
       <div className={(popdownIsVisible ? "absolute" : "hidden") + " origin-top-right top-14 right-4 bg-asidebg shadow-2xl text-lg rounded-lg flex flex-col font-semibold"}>
         <Link icon={faPlusSquare}>Create NFT</Link>
@@ -86,10 +86,10 @@ function NavRightSide() {
 
 export default function NavBar() {
   return (
-    <div className="flex flex-row xl:justify-between h-16 bg-asidebg items-center px-6">
-      <FontAwesomeIcon icon={faBars} className="text-3xl xl:hidden"/>
+    <div className="flex flex-row lg:justify-between h-16 bg-asidebg items-center px-6">
+      <FontAwesomeIcon icon={faBars} className="text-3xl lg:hidden"/>
       <Logo />
-      <SearchBar className="hidden xl:flex"/>
+      <SearchBar className="hidden lg:flex"/>
       <NavRightSide />
     </div>
   );
