@@ -26,7 +26,7 @@ import FilterByTier from "./FilterByTier";
 // }
 
 export default function Sidebar() {
-  const [sidebarIsHidden, showSidebar] = React.useState(false)
+  const [sidebarIsHidden, showSidebar] = React.useState(true)
   function showSidebarCommand() {
     // alert(sidebarIsHidden)
     if (sidebarIsHidden === false) {
