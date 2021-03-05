@@ -10,7 +10,7 @@ function MainLogo () {
 
 function Logo() {
   return (
-    <div className="flex flex-row items-center w-48 mx-auto lg:mx-0 justify-between">
+    <div className="flex flex-row items-center w-48 ml-6 mr-auto lg:mx-0 justify-between">
       <MainLogo />
       <div className="font-title text-xl font-bold tracking-wider">
         MU&nbsp;Citadel

@@ -20,9 +20,9 @@ function Logo() {
 
 function SubFooter () {
   return (
-    <div className="pt-px sm:pt-0 h-5 text-xs sm:text-sm text-secondary" style={{backgroundColor:"rgba(20, 16, 23"}}>
-      <div className="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-        <div className="flex justify-around sm:justify-between ">
+    <div className=" h-5 text-sm text-secondary" style={{backgroundColor:"rgba(20, 16, 23"}}>
+      <div className="max-w-lg mx-auto">
+        <div className="flex justify-between ">
           <div>Copyright 2021 ©️ MemeUnity</div>
           <div>Privacy Policy</div>
           <div>Terms of Service</div>
@@ -40,16 +40,16 @@ export default function Footer() {
   }
 
   function FooterElement (props) {
-    return <div className="m-0 my-5 mx-10 sm:m-5 sm:w-72 flex flex-col box-border">{props.children}</div>
+    return <div style={{maxWidth:"21%"}} className="">{props.children}</div>
   }
 
   return (
     <>
-    <div className="sm:px-0 lg:px-10 xl:px-32 bg-asidebg mt-10">
-    <div className="flex flex-col max-w-full sm:max-w-2xl lg:max-w-full mx-auto sm:flex-row flex-wrap lg:flex-nowrap -m-5 mt-5 pt-5 pb-10 text-center sm:text-left ">
+    <div className="px-60 bg-asidebg mt-10">
+    <div className="py-10 flex flex-col lg:flex-row justify-between">
       <FooterElement>
         {/* <Title>Dank</Title> */}
-        <div className="mb-3 flex flex-row justify-around"><Logo/></div>
+        <div className="mb-3"><Logo/></div>
         <p>This will be the beginning of something awesome and full of memes.</p>
       </FooterElement>
       <FooterElement>

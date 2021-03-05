@@ -15,7 +15,7 @@ faSortAmountDown
 
 
 const ascendingDescending = (
-  <div className="flex ml-4 text-xl justify-between w-24">
+  <div className="flex mx-0 mt-2 lg:my-auto lg:ml-4 text-xl justify-between w-24">
     <div className="bg-mupurple p-1 h-10 w-10 rounded-full flex justify-around items-center">
       {/* <i className="fas fa-sort-amount-up"></i> */}
       <FontAwesomeIcon icon={faSortAmountUp}/>
@@ -29,8 +29,8 @@ const ascendingDescending = (
 
 export default function SortPicker() {
   return (
-    <div className="flex w-full items-center">
-      <div className="flex  ml-4 w-48 justify-center flex-wrap">
+    <div className="flex flex-col lg:flex-row w-full items-center">
+      <div className="flex mt-2 lg:mx-auto mx-0 lg:ml-4 w-48 justify-center flex-wrap">
         {sortSelectors}
       </div>
       <div>{ascendingDescending}</div>
