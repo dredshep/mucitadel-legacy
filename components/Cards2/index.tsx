@@ -4,12 +4,12 @@ export function Card2 (props) {
       <div className="rounded-xl font-title bg-asidebg overflow-hidden">
         {/* Title */}
         <div className="bg-mupurple flex justify-around items-center py-2">
-          <div className="text-base sm:text-lg font-bold tracking-wider">Voiceover Pete</div>
+          <div className="text-base xlish:text-lg font-bold tracking-wider">Voiceover Pete</div>
         </div>
         {/* Container for everything below the title */}
-        <div className="p-2 sm:p-4 flex flex-row">
+        <div className="p-2 xlish:p-4 flex flex-row">
           {/* Image */}
-          <div className="w-32 lg:w-40 flex-shrink-0">
+          <div className="w-32 xlish:w-40 flex-shrink-0">
             <img
               className="max-w-full"
               src="images/pete-card.jpg"
@@ -17,7 +17,7 @@ export function Card2 (props) {
             />
           </div>
           {/* Metadata */}
-          <div className="text-sm sm:text-base w-44 sm:w-56 lg:w-64 pl-2 sm:pl-4 flex flex-col justify-around">
+          <div className="text-sm xlish:text-base w-44 xlish:w-56 pl-2 xlish:pl-4 flex flex-col justify-around">
             <div className="flex flex-row justify-between">
               <div>Trending Rating</div>
               <div className="font-semibold">1031</div>

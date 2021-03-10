@@ -40,7 +40,9 @@ module.exports = {
       'sm': '673px',
       'md': '768px',
       'lg': '1024px',
+      'lgish': '1124px',
       'xl': '1248px',
+      'xlish': '1281px',
       '2xl': '1536px',
     },
     fontFamily: {

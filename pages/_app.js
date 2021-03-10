@@ -1,5 +1,10 @@
 import '../styles/globals.css'
 import Head from "next/head";
+import TimeAgo from 'javascript-time-ago'
+
+import en from 'javascript-time-ago/locale/en'
+
+TimeAgo.addLocale(en)
 
 function MyApp({ Component, pageProps }) {
   return (

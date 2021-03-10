@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const sortSelectors = "price name tier kcal trending".split(" ").map((key) => (
   <div
-    className="rounded-xl bg-mupurple py-1 px-2 mt-0.5 mb-0.5 mx-0.5 h-6 flex justify-around items-center font-semibold"
+    className="rounded-xl bg-mupurple px-2 mt-0.5 mb-0.5 mx-0.5 h-6 flex justify-around items-center font-semibold"
     key={key}
   >
-    <div className="mb-1 ">{key}</div>
+    <div className="pb-1 pt-px px-px">{key}</div>
   </div>
 ));
 
@@ -30,7 +30,7 @@ const ascendingDescending = (
 export default function SortPicker() {
   return (
     <div className="flex flex-col lg:flex-row w-full items-center">
-      <div className="flex mt-2 lg:mx-auto mx-0 lg:ml-4 w-48 justify-center flex-wrap">
+      <div className="flex mt-2 lg:mt-0 lg:mx-auto mx-0 lg:ml-4 w-48 justify-center flex-wrap">
         {sortSelectors}
       </div>
       <div>{ascendingDescending}</div>

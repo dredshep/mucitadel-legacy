@@ -1,6 +1,9 @@
 import NavBar from "../components/NavBar";
 import { Card2 } from "../components/Cards2";
 import Footer from '../components/Footer';
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReactTimeAgo from 'react-time-ago';
 
 type NoLinkPair = {
   pairKey:string, value:string, info?: string
@@ -67,7 +70,7 @@ function BuySection () {
 function KeyValue (props: NoLinkPair | LinkPair) {
   // const { pairKey, value, link, external } = props
   const pairKeyElement = (
-    <div className="font-semibold font-title tracking-wide text-secondary flex-shrink-0 w-36">
+    <div className="font-semibold font-title tracking-wide text-secondary flex-shrink-0 min-w-min">
       {props.pairKey} {props.info ? <i className="fas fa-info-circle"></i> : undefined}
     </div>
     )
@@ -84,7 +87,7 @@ function KeyValue (props: NoLinkPair | LinkPair) {
   // const stylizedPairKey = <div>{pairKeyElement}</div>
   const stylizedValue = <div className="max-w-full text-left break-words" style={{maxWidth: "60%"}}>{valueElement}</div>
 
-  return (<div className="flex flex-row justify-between w-full mb-8">{pairKeyElement} {stylizedValue}</div>)
+  return (<div className="flex flex-row justify-between w-full mb-3">{pairKeyElement} {stylizedValue}</div>)
 }
 
 const Card = (
@@ -111,7 +114,9 @@ const Card = (
   </div>
 );
 
-
+// TODO
+// MAKE A FUNCTION THAT SENDS OR RECEIVES .INFO PROP TO ADD IT AS A POPUP TO THE ICON..
+// till then, .info is deprecated.
 function makeProp (pairKey: string, value:string): NoLinkPair
 function makeProp (pairKey: string, value:string, link:string, external:boolean): LinkPair
 function makeProp (pairKey: string, value:string, link?:string, external?:boolean) {
@@ -144,10 +149,10 @@ function NFTDetails() {
   ].map(obj => makeProp(...Object.values(obj) as [string, string]))
   
   return (
-    <div className="flex flex-col h-full mt-10 p-8 bg-asidebg rounded-xl mr-5 max-w-md">
+    <div className="flex flex-col p-8 bg-asidebg rounded-none box-border lg:rounded-xl w-full max-w-full lg:w-auto lg:max-w-md">
       {/* <div className="w-96"><img className="w-full" src="/images/pete-card.jpg" /></div> */}
       {/* <div className="text-lg font-bold">Voiceover Pete</div> */}
-      <div className="text-3xl font-bold mb-9">NFT Details</div>
+      <div className="text-3xl font-bold mb-5 font-title">NFT Details</div>
       {props.map(props => <KeyValue {...props}/>)}
     </div>)
 }
@@ -163,10 +168,10 @@ function SeriesDetails() {
       pairKey: "Series Royalties",
       value: "10%",
       info: "10% of all sales will be paid to the original creator: uniqueart"
-    } as NoLinkPair, {
+    } as NoLinkPair/*as NoLinkPair, {
       pairKey: "Series Royalties",
       value: "10%"
-    }, {
+    }*/, {
       pairKey: "Series Current Supply",
       value: "2"
     }, {
@@ -176,19 +181,168 @@ function SeriesDetails() {
   ].map(obj => makeProp(...Object.values(obj) as [string, string]))
   
   return (
-    <div className="flex flex-col h-full mt-10 p-8 bg-asidebg rounded-xl w-full ml-5">
+    <div className="flex flex-col p-8 bg-asidebg rounded-none lg:rounded-xl w-full lg:w-96">
       {/* <div className="w-96"><img className="w-full" src="/images/pete-card.jpg" /></div> */}
       {/* <div className="text-lg font-bold">Voiceover Pete</div> */}
-      <div className="text-3xl font-bold mb-9">Series Details</div>
+      <div className="text-3xl font-bold mb-5 font-title">Series Details</div>
       {props.map(props => <KeyValue {...props}/>)}
     </div>)
 }
 
 function RelatedSection() {
-  const title = <div className="text-3xl font-bold mb-9 mt-10">Related Cards</div>
-  const cards = <div className="flex justify-center w-full box-border overflow-hidden"><div><Card2 /></div> <div className="w-10 flex-shrink-0"></div> <div><Card2 /></div></div>
+  const title = <div className="text-3xl font-bold mb-9 mt-10 mx-auto md:mx-0">Related Cards</div>
+  const cards = (
+    <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border overflow-hidden">
+      <div><Card2 /></div>
+      <div className="w-10 h-10 flex-shrink-0"></div>
+      <div><Card2 /></div>
+    </div>)
   return (<>{title} {cards}</>)
 }
+
+// function NFTEventsHistory() {
+//   return (
+    
+//   )
+// }
+
+const keyTextClass = "text-secondary font-semibold font-title"
+const valueTextClass = "text-white font-body"
+
+function Product2 () {
+  const currencyButton = (<span className="py-1 px-2 ml-2 border border-mupurple rounded-md">
+    DANK <FontAwesomeIcon className="text-mupurple" icon={faCaretDown}/>
+  </span>)
+
+  return <div className="flex flex-row px-5 pb-5 md:py-0 md:px-0 space-x-0 md:space-x-5 bg-asidebg rounded-none md:rounded-xl mt-0 md:mt-10 w-full max-w-lg md:max-w-3xl mx-auto">
+    <div className="hidden md:flex w-80 flex-shrink-0"><img className="w-full" src="/images/pete-card.jpg" /></div>
+    <div className="w-full">
+      <div className="flex flex-row items-center mt-5">
+        <div className="w-20 flex-shrink-0 mr-3 md:hidden"><img className="w-full" src="/images/pete-card.jpg" /></div>
+        <div>
+          <div className="text-success font-semibold text-lg leading-3 font-body">#1031</div>
+          <div className="mt-8 text-white font-bold text-4xl leading-9 font-title">Voiceover Pete</div>
+          <div className="mt-3 text-secondary font-semibold text-lg leading-3 font-body">Unprecedented</div>
+        </div>
+      </div>
+      <div className="flex flex-row mt-5 justify-between">
+        <div className="flex flex-col w-44">
+          <div className={keyTextClass}>Price</div>
+          <div className={valueTextClass + " font-semibold text-lg"}>420.69 {currencyButton}</div>
+        </div>
+        <div className="flex flex-col w-44">
+          <div className={keyTextClass}>Mint Edition</div>
+          <div className={valueTextClass}>1 out of 3</div>
+        </div>
+      </div>
+      <div className="flex flex-col-reverse md:flex-col">
+        <div>
+          <div className="flex h-12 text-base font-body mt-2 text-secondary">
+            <div className="border-b-2 border-inputbg w-40 h-full flex items-center box-content">Description</div>
+            <div className="border-b-2 border-mupurple h-full flex items-center w-full box-content pl-5">Details</div>
+          </div>
+          <div className="flex flex-col space-y-3 mt-5 pr-5">
+            {/* Row 1 */}
+            <div className="flex flex-row justify-between font-body">
+              <div className={keyTextClass}>Owner</div>
+              <div className="text-white"><a className="text-mupurple">moonsawyer1331</a></div>
+            </div>
+            {/* Row 2 */}
+            <div className="flex flex-row justify-between font-body">
+              <div className={keyTextClass}>Mint date</div>
+              <div className="text-white">Feb 2, 2021</div>
+            </div>
+            {/* Row 3 */}
+            <div className="flex flex-row justify-between font-body">
+              <div className={keyTextClass}>Listed until</div>
+              <div className="text-white">Feb 3, 2021</div>
+            </div>
+          </div>
+        </div>
+        {/* BUY BUTTONS SECTION */}
+        <div className="flex flex-row font-semibold text-xl justify-start md:justify-center space-x-5 mt-4 w-full">
+          <div className="py-2 w-1/2 md:w-auto px-4 rounded-full bg-mupurple text-white flex justify-around items-center ml-0 md:ml-6"><div className="mb-px">Buy</div></div>
+          <div className="py-2 w-1/2 md:w-auto px-4 rounded-full bg-white text-mupurple flex justify-around items-center"><div className="mb-1">Add to cart</div></div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+}
+
+function MiniExplorer ()  {
+  type Event = {
+    type: "cancelled" | "minted" | "infused" | "listed"
+    date: Date
+    username: string
+    account: string
+    amount?: string
+    transaction: string
+  }
+  const exampleEvents = [{
+    type: "listed",
+    date: new Date("Sat, 27 Feb 2021 18:48:43 GMT"),
+    username: "moonsawyer1331",
+    account: "P2K6h65yT8rx5pgAjSkAfhTAhRU7mRCJWYv6AbHewyGQQrg",
+    amount: "420.69 DANK",
+    transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
+  } as Event,{
+    type: "infused",
+    date: new Date("Sat, 27 Feb 2021 18:48:43 GMT "),
+    username: "moonsawyer1331",
+    account: "P2K6h65yT8rx5pgAjSkAfhTAhRU7mRCJWYv6AbHewyGQQrg",
+    amount: "1 KCAL",
+    transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
+  } as Event,{
+    type: "minted",
+    date: new Date("Sat, 27 Feb 2021 18:48:43 GMT "),
+    username: "moonsawyer1331",
+    account: "P2K6h65yT8rx5pgAjSkAfhTAhRU7mRCJWYv6AbHewyGQQrg",
+    transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
+  } as Event,{
+    type: "cancelled",
+    date: new Date("Mon, 01 Mar 2021 22:18:32 GMT"),
+    username: "moonsawyer1331",
+    account: "P2K6h65yT8rx5pgAjSkAfhTAhRU7mRCJWYv6AbHewyGQQrg",
+    transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
+  } as Event]
+
+  function Phrasing (event: Event, key: number) {
+    const surroundOrSpace = (s: string) => s.length > 1 ? ` ${s} ${event.amount} ` : ` `
+    const appendedWord = event.type === "infused"
+      ? "with"
+    : event.type === "listed"
+      ? "for"
+      : ""
+    const joiner = surroundOrSpace(appendedWord)
+
+    return (<div className="whitespace-pre-wrap mb-3" key={key}>
+      <a className="text-mupurple" href={"https://ghostmarket.io/account/pha/" + event.account}>{event.username}</a>
+      {" "}{event.type}{joiner}
+      <a className="text-mupurple ml-auto" href={"https://https://explorer.phantasma.io/tx/" + event.transaction}>
+        <ReactTimeAgo date={event.date} locale="en-US"/>
+      </a>
+    </div>)
+  };
+
+  return (
+    <div className="flex flex-col bg-asidebg rounded-none w-full lg:w-max lg:rounded-xl p-8 font-body">
+      <div className="text-3xl font-bold mb-5 font-title">Event History</div>
+      {exampleEvents.map((event, index) => Phrasing(event, index))}
+    </div>
+  )
+}
+
+// 
+// <div className="flex flex-row h-full mt-10 p-8 bg-asidebg rounded-xl">
+// {/* <div className="w-96"><img className="w-full" src="/images/pete-card.jpg" /></div> */}
+// {/* <div className="text-lg font-bold">Voiceover Pete</div> */}
+// <div className="flex flex-col items-center">
+//   <div className="text-3xl font-bold">Voiceover Pete</div>
+//   {Card}
+// </div>
+// {propsSection}
+// </div>
 
 function Content() {
   const mainProps: (LinkPair|NoLinkPair)[]= [
@@ -216,21 +370,14 @@ function Content() {
     </div>
   )
   return (
-    <div className="px-60">
-      <div className="flex flex-row h-full mt-10 p-8 bg-asidebg rounded-xl">
-        {/* <div className="w-96"><img className="w-full" src="/images/pete-card.jpg" /></div> */}
-        {/* <div className="text-lg font-bold">Voiceover Pete</div> */}
-        <div className="flex flex-col items-center">
-          <div className="text-3xl font-bold">Voiceover Pete</div>
-          {Card}
-        </div>
-        {propsSection}
+    <div className="px-0 xl:px-32 flex flex-col">
+      <Product2 />
+      <div className="flex flex-col lg:flex-row flex-wrap lg:space-x-10 justify-start lg:justify-center w-full space-y-3 lg:space-y-0 mt-3 lg:mt-10 mx-auto">
+        <div className="mb-0 lg:mb-10 max-w-full"><NFTDetails /></div>
+        <div className="mb-0 lg:mb-10 max-w-full"><SeriesDetails /></div>
+        <div className="mb-0 lg:mb-10 max-w-full"><MiniExplorer /></div>
       </div>
-      <div className="flex flex-row">
-        <NFTDetails />
-        <SeriesDetails />
-      </div>
-        <RelatedSection/>
+      <div className="w-full text-center"><RelatedSection/></div>
     </div>
   );
 }

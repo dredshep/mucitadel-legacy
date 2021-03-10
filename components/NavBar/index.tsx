@@ -4,15 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import SearchBar from "./SearchBar/Index";
 
+// h-10
+
 function MainLogo () {
-  return (<img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />)
+  return (<img src="/images/White Mask.png" className="h-8 lg:h-10" alt="MemeUnity Logo" />)
 }
 
 function Logo() {
   return (
-    <div className="flex flex-row items-center w-48 ml-6 mr-auto lg:mx-0 justify-between">
+    <div className="flex flex-row items-center w-48 ml-6 mr-auto lg:mx-0">
+      {/* ^ justify-between */}
       <MainLogo />
-      <div className="font-title text-xl font-bold tracking-wider">
+      {/* text-xl ml-0*/}
+      <div className="font-title text-lg lg:text-xl ml-3 lg:ml-4 font-bold tracking-wider">
         MU&nbsp;Citadel
       </div>
     </div>
@@ -67,7 +71,7 @@ function NavRightSide() {
   }
 
   return (
-    <div className="text-3xl flex lg:w-64 justify-between ">
+    <div className="text-2xl lg:text-3xl flex lg:w-64 justify-between ">
       <FontAwesomeIcon icon={faPlusSquare} className="hidden lg:flex"/>
       <FontAwesomeIcon icon={faTh}  className="lg:flex hidden"/>
       <FontAwesomeIcon icon={faBell}  className="lg:flex hidden"/>
@@ -87,7 +91,7 @@ function NavRightSide() {
 export default function NavBar() {
   return (
     <div className="flex flex-row lg:justify-between h-16 bg-asidebg items-center px-6">
-      <FontAwesomeIcon icon={faBars} className="text-3xl lg:hidden"/>
+      <FontAwesomeIcon icon={faBars} className="text-3xl mr-2 lg:hidden"/>
       <Logo />
       <SearchBar className="hidden lg:flex"/>
       <NavRightSide />
