@@ -35,12 +35,12 @@ function Logo() {
 
 export default function Home() {
   return (
-    <div className="App text-white bg-mainbg min-h-screen overflow-y-hidden">
+    <div className="App text-white bg-mainbg min-h-screen overflow-y-hidden font-body">
       <Head>
         <title>MU Citadel - the tree where memes grow</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <NavBar />
+      <NavBar sidebar={true}/>
       <Content />
       <Footer/>
     </div>

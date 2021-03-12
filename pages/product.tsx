@@ -218,19 +218,19 @@ function Product2 () {
     <div className="hidden md:flex w-80 flex-shrink-0"><img className="w-full" src="/images/pete-card.jpg" /></div>
     <div className="w-full">
       <div className="flex flex-row items-center mt-5">
-        <div className="w-20 flex-shrink-0 mr-3 md:hidden"><img className="w-full" src="/images/pete-card.jpg" /></div>
+        <div className="w-20 xs:w-20 flex-shrink-0 mr-3 md:hidden"><img className="w-full" src="/images/pete-card.jpg" /></div>
         <div>
           <div className="text-success font-semibold text-lg leading-3 font-body">#1031</div>
-          <div className="mt-8 text-white font-bold text-4xl leading-9 font-title">Voiceover Pete</div>
+          <div className="mt-8 text-white font-bold text-2xl xs:text-4xl leading-9 font-title">Voiceover Pete</div>
           <div className="mt-3 text-secondary font-semibold text-lg leading-3 font-body">Unprecedented</div>
         </div>
       </div>
-      <div className="flex flex-row mt-5 justify-between">
-        <div className="flex flex-col w-44">
+      <div className="flex flex-row mt-5 justify-start md:justify-between">
+        <div className="flex flex-col w-7/12 xs:w-2/3 md:w-44">
           <div className={keyTextClass}>Price</div>
           <div className={valueTextClass + " font-semibold text-lg"}>420.69 {currencyButton}</div>
         </div>
-        <div className="flex flex-col w-44">
+        <div className="flex flex-col w-5/12 xs:w-1/3 md:w-44 ">
           <div className={keyTextClass}>Mint Edition</div>
           <div className={valueTextClass}>1 out of 3</div>
         </div>
@@ -260,9 +260,13 @@ function Product2 () {
           </div>
         </div>
         {/* BUY BUTTONS SECTION */}
-        <div className="flex flex-row font-semibold text-xl justify-start md:justify-center space-x-5 mt-4 w-full">
-          <div className="py-2 w-1/2 md:w-auto px-4 rounded-full bg-mupurple text-white flex justify-around items-center ml-0 md:ml-6"><div className="mb-px">Buy</div></div>
-          <div className="py-2 w-1/2 md:w-auto px-4 rounded-full bg-white text-mupurple flex justify-around items-center"><div className="mb-1">Add to cart</div></div>
+        {/* <div className="flex flex-row font-semibold text-xl justify-start md:justify-center space-x-5 mt-4 w-full">
+          <div className="w-1/2 md:w-auto px-6 rounded-full bg-white text-mupurple flex justify-around items-center ml-0 md:ml-6"><div className="pt-1 pb-1 md:pt-1 md:pb-1.5 leading-loose align-middle">Buy</div></div>
+          <div className="w-1/2 md:w-auto px-6 rounded-full bg-mupurple text-white flex justify-around items-center"><div className="pt-1 pb-1 md:pt-1 md:pb-1.5 leading-loose align-middle">Add to wishlist</div></div>
+        </div> */}
+        <div className="flex flex-row font-semibold text-sm xs:text-xl justify-start md:justify-center space-x-2 xs:space-x-5 mt-4 w-full">
+          <div className="w-1/2 md:w-auto px-3 tiny:px-6 rounded-full bg-white text-mupurple flex justify-around items-center ml-0 md:ml-6"><div className="pt-1 pb-1 md:pt-1 md:pb-1 leading-loose align-middle">Buy</div></div>
+          <div className="w-1/2 md:w-auto px-3 tiny:px-6 rounded-full bg-mupurple text-white flex justify-around items-center"><div className="pt-1 pb-1 md:pt-1 md:pb-1 leading-loose align-middle">Add to wishlist</div></div>
         </div>
       </div>
     </div>
@@ -384,7 +388,7 @@ function Content() {
 
 export default function Home() {
   return (
-    <div className="App text-white bg-mainbg min-h-screen">
+    <div className="App text-white bg-mainbg min-h-screen font-body">
       <NavBar />
       <Content />
       

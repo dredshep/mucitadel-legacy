@@ -1,7 +1,9 @@
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 import { faBars, faBell, faChartLine, faClone, faHeartbeat, faSignOutAlt, faTh, faUserCircle, faWallet, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
+import ActiveLink from "../ActiveLink";
 import SearchBar from "./SearchBar/Index";
 
 // h-10
@@ -10,9 +12,9 @@ function MainLogo () {
   return (<img src="/images/White Mask.png" className="h-8 lg:h-10" alt="MemeUnity Logo" />)
 }
 
-function Logo() {
+function Logo(props: {sidebar?:boolean}) {
   return (
-    <div className="flex flex-row items-center w-48 ml-6 mr-auto lg:mx-0">
+    <div className={(props.sidebar ? "ml-6": "ml-0") + " flex flex-row items-center w-48 mr-auto lg:mx-0"}>
       {/* ^ justify-between */}
       <MainLogo />
       {/* text-xl ml-0*/}
@@ -88,11 +90,12 @@ function NavRightSide() {
   );
 }
 
-export default function NavBar() {
+export default function NavBar(props: {sidebar?: boolean}) {
+  const router = useRouter()
   return (
     <div className="flex flex-row lg:justify-between h-16 bg-asidebg items-center px-6">
-      <FontAwesomeIcon icon={faBars} className="text-3xl mr-2 lg:hidden"/>
-      <Logo />
+      {props.sidebar ? <FontAwesomeIcon icon={faBars} className="text-3xl mr-2 lg:hidden"/> : undefined}
+      <ActiveLink href={router.pathname === "/" ? "#" : "/"}><Logo sidebar={props.sidebar} /></ActiveLink>
       <SearchBar className="hidden lg:flex"/>
       <NavRightSide />
     </div>

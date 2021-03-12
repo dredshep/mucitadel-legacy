@@ -1,3 +1,5 @@
+import ActiveLink from "../ActiveLink";
+
 export function Card2 (props) {
   return (
     <div {...props}>
@@ -9,7 +11,7 @@ export function Card2 (props) {
         {/* Container for everything below the title */}
         <div className="p-2 xlish:p-4 flex flex-row">
           {/* Image */}
-          <div className="w-32 xlish:w-40 flex-shrink-0">
+          <div className="w-28 tiny:w-32 xlish:w-40 flex-shrink-0">
             <img
               className="max-w-full"
               src="images/pete-card.jpg"
@@ -17,7 +19,7 @@ export function Card2 (props) {
             />
           </div>
           {/* Metadata */}
-          <div className="text-sm xlish:text-base w-44 xlish:w-56 pl-2 xlish:pl-4 flex flex-col justify-around">
+          <div className="text-sm xlish:text-base w-40 tiny:w-44 xlish:w-56 pl-2 xlish:pl-4 flex flex-col justify-around">
             <div className="flex flex-row justify-between">
               <div>Trending Rating</div>
               <div className="font-semibold">1031</div>
@@ -61,7 +63,7 @@ export default function Cards2() {
     
     <Container>
       <div className="flex flex-row flex-wrap justify-center">
-        {[...Array(12).keys()].map((i) => <Card2 key={i} className="mt-10 mr-5 ml-5" />)}
+        {[...Array(12).keys()].map((i) => <ActiveLink href="/product" key={i}><Card2 className="mt-10 mx-auto tiny:mr-5 tiny:ml-5" /></ActiveLink>)}
       </div>
     </Container>
   );

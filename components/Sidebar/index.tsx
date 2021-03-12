@@ -26,16 +26,20 @@ import FilterByTier from "./FilterByTier";
 // }
 
 export default function Sidebar() {
-  const [sidebarIsHidden, showSidebar] = React.useState(true)
+  const [sidebarIsHidden, showSidebar] = React.useState(true);
   function showSidebarCommand() {
     // alert(sidebarIsHidden)
     if (sidebarIsHidden === false) {
       console.log('showing')
       showSidebar(true)
       document.body.style.overflow = "scroll"
+      document.body.style.maxHeight = "100%"
+      document.body.style.position = "relative"
     } else if (sidebarIsHidden === true) {
       console.log('hiding')
       showSidebar(false)
+      document.body.style.maxHeight = "100vh"
+      document.body.style.position = "fixed"
       document.body.style.overflow = "hidden"
     }
   }
@@ -44,7 +48,7 @@ export default function Sidebar() {
   return (
     <>
       <div onClick={showSidebarCommand} className={"absolute origin-top-left top-0 left-0 lg:hidden h-16 w-20"}></div>
-      <aside className={(sidebarIsHidden ? "hidden lg:flex lg:relative" : "flex absolute lg:relative") + " flex-shrink-0 flex-grow min-h-screen max-h-full bg-asidebg p-4"}>
+      <aside className={(sidebarIsHidden ? "hidden lg:flex lg:relative" : "flex absolute lg:relative") + " flex-shrink-0 flex-grow min-h-screen max-h-full bg-asidebg p-4 overflow-y-auto"}>
         
           <div className={"flex w-64 flex-col items-start flex-shrink-0 min-h-screen max-h-full"}>
           <div className="sticky top-0 ">
