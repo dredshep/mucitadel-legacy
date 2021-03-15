@@ -1,5 +1,5 @@
-import { faPlusSquare, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-import { faBars, faBell, faChartLine, faClone, faHeartbeat, faSignOutAlt, faTh, faUserCircle, faWallet, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
+import { faBars, faBell, faChartLine, faClone, faHeartbeat, faSignOutAlt, faTh, faUserCircle, faWallet, IconDefinition, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
@@ -87,7 +87,7 @@ function NavRightSide() {
               <div className="w-full flex justify-between">
                 <div className="px-10 flex justify-around items-center">Choose your login method:</div>
                 <div className="w-14 h-14 flex justify-around cursor-pointer items-center hover:bg-asidebg hover:text-white" onClick={showLoginModalCommand}>
-                  <FontAwesomeIcon icon={faTimesCircle}/>
+                  <FontAwesomeIcon icon={faTimes}/>
                 </div>
               </div>
               {/* <div className="max-w-max pb-3">Choose your login method:</div> */}
