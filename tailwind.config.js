@@ -11,6 +11,11 @@ module.exports = {
       white: "#f2f2f2",
       success: "#577c48",
       secondary: "#a58eb9",
+      metamask: {
+        bg: "#081828",
+        text: "#efeff0"
+      },
+
       // purple: {
       //   100: "#230026",
       //   200: "#311457",
