@@ -24,3 +24,14 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* Pagination Class Properties */
+.paginationClass li {
+  float:left;
+  padding-left: 16px;
+  
+} 
+
+.paginationClass{
+  margin: 0 auto;
+}
