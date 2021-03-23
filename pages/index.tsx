@@ -3,7 +3,8 @@ import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Toolbar from "../components/Toolbar";
 import Footer from "../components/Footer";
-import Head from 'next/head'
+import Head from 'next/head';
+
 
 
 function Content() {
@@ -39,10 +40,30 @@ export default function Home() {
       <Head>
         <title>MU Citadel - the tree where memes grow</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <script src="/scripts.js" />
+
       </Head>
+      <div className="modal fade" id="cookieModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-body">
+              <div className="notice d-flex justify-content-between align-items-center">
+                <div className="cookie-text">We  &nbsp;use&nbsp;  cookies&nbsp;  🍪..  </div>
+                  <div className="buttons d-flex flex-column flex-lg-row">
+                    <a href="#a" className="btn learn-more btn-sm" data-dismiss="modal"> &nbsp; Learn More</a>
+                    <a href="#" className="btn learn-more btn-sm" id="closeModal" data-dismiss="modal">&nbsp;&nbsp;  X</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
       <NavBar sidebar={true}/>
       <Content />
       <Footer/>
     </div>
+    
   );
+  
 }
+
