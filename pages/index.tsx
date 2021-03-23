@@ -48,7 +48,7 @@ export default function Home() {
           <div className="modal-content">
             <div className="modal-body">
               <div className="notice d-flex justify-content-between align-items-center">
-                <div className="cookie-text">We  &nbsp;use&nbsp;  cookies&nbsp;  🍪..  </div>
+                <div className="cookie-text">We  &nbsp;use&nbsp;  🍪..  </div>
                   <div className="buttons d-flex flex-column flex-lg-row">
                     <a href="#a" className="btn learn-more btn-sm" data-dismiss="modal"> &nbsp; Learn More</a>
                     <a href="#" className="btn learn-more btn-sm" id="closeModal" data-dismiss="modal">&nbsp;&nbsp;  X</a>

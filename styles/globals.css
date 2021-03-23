@@ -54,7 +54,7 @@ body {
 }
 .modal-dialog .modal-content {
   border-radius: 0rem;
-  padding : 5px;
+  padding : 1px;
 }
 .modal-dialog .buttons .btn {
   margin: 0rem;
