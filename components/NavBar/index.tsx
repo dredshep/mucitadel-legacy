@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ActiveLink from "../ActiveLink";
 import SearchBar from "./SearchBar/Index";
 
+import Cookies from 'universal-cookie';
 // h-10
 
 function MainLogo () {
@@ -76,7 +77,29 @@ function NavRightSide() {
   const showLoginModalCommand = () => showLoginModal(!loginModalIsVisible)
   // onClick={}
 
-
+  const onClickConnect = async () => {
+    try {
+      const newAccounts = await window.ethereum.request({
+        method: 'eth_requestAccounts',
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  async function connectMetaMask() {
+    console.log('click metamask button')
+    const newAccounts = await window.ethereum.request({
+      method: 'eth_requestAccounts',
+    })
+    const cookies = new Cookies()
+    if( newAccounts !== undefined) {
+      cookies.set("metamask_connected", "true");
+    }else {
+      cookies.set("metamask_connected", "false");
+    }
+    console.log(newAccounts[0])
+    console.log(cookies.get("metamask_connected"))
+  }
   return (
     <div className="text-2xl ml-auto lg:ml-0 lg:text-3xl flex space-x-6 items-center">
       <div className={!loginModalIsVisible ? "hidden" : "fixed origin-top-left top-0 left-0 z-20 h-screen w-screen bg-mupurple opacity-60"} onClick={showLoginModalCommand}></div>
@@ -92,7 +115,7 @@ function NavRightSide() {
               </div>
               {/* <div className="max-w-max pb-3">Choose your login method:</div> */}
               <div className="flex justify-center space-x-5 py-10 bg-asidebg">
-                <div className="px-4 py-2 font-semibold border-white border-opacity-50 hover:border-opacity-100 border-solid border-2 bg-metamask-bg text-metamask-text rounded-full cursor-pointer">Metamask</div>
+                <div className="px-4 py-2 font-semibold border-white border-opacity-50 hover:border-opacity-100 border-solid border-2 bg-metamask-bg text-metamask-text rounded-full cursor-pointer" onClick={connectMetaMask}>Metamask</div>
                 <div className="px-4 py-2 font-semibold bg-phantasmablue border-white border-opacity-50 hover:border-opacity-100 border-solid border-2 text-white rounded-full cursor-pointer">Poltergeist</div>
               </div>
             </div>
