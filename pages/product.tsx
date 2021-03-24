@@ -4,6 +4,10 @@ import Footer from '../components/Footer';
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactTimeAgo from 'react-time-ago';
+import ReactPaginate from 'react-paginate';
+import Router, { withRouter } from 'next/router'
+import axios from 'axios';
+
 
 type NoLinkPair = {
   pairKey:string, value:string, info?: string
@@ -274,8 +278,31 @@ function Product2 () {
   </div>
 }
 
-function MiniExplorer ()  {
+function MiniExplorer (props)  {
+  
+  const metaData = {
+    totalCount: 100,
+    pageCount: 25,
+    currentPage: 1,
+    perPage: 4,
+  }
+
+  const pagginationHandler = (page) => {
+    // Will uncomment this once the API for event segregation is added
+    // const currentPath = props.router.pathname;
+    //         const currentQuery = props.router.query;
+    //         currentQuery.page = page.selected + 1;
+    
+    //         props.router.push({
+    //             pathname: currentPath,
+    //             query: currentQuery,
+    //         });
+  };
   type Event = {
+    totalCount: number
+    pageCount: number
+    currentPage: number
+    perPage: number
     type: "cancelled" | "minted" | "infused" | "listed"
     date: Date
     username: string
@@ -284,6 +311,10 @@ function MiniExplorer ()  {
     transaction: string
   }
   const exampleEvents = [{
+    totalCount: 6,
+    pageCount: 2,
+    currentPage: 1,
+    perPage: 4,
     type: "listed",
     date: new Date("Sat, 27 Feb 2021 18:48:43 GMT"),
     username: "moonsawyer1331",
@@ -291,6 +322,10 @@ function MiniExplorer ()  {
     amount: "420.69 DANK",
     transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
   } as Event,{
+    totalCount: 6,
+    pageCount: 2,
+    currentPage: 1,
+    perPage: 4,
     type: "infused",
     date: new Date("Sat, 27 Feb 2021 18:48:43 GMT "),
     username: "moonsawyer1331",
@@ -298,12 +333,20 @@ function MiniExplorer ()  {
     amount: "1 KCAL",
     transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
   } as Event,{
+    totalCount: 6,
+    pageCount: 2,
+    currentPage: 1,
+    perPage: 4,
     type: "minted",
     date: new Date("Sat, 27 Feb 2021 18:48:43 GMT "),
     username: "moonsawyer1331",
     account: "P2K6h65yT8rx5pgAjSkAfhTAhRU7mRCJWYv6AbHewyGQQrg",
     transaction: "F7A1FEB2A2525F373427AC9027B0ADED2E4B51C4A1F9559B85B4DB969173608D"
   } as Event,{
+    totalCount: 6,
+    pageCount: 2,
+    currentPage: 1,
+    perPage: 4,
     type: "cancelled",
     date: new Date("Mon, 01 Mar 2021 22:18:32 GMT"),
     username: "moonsawyer1331",
@@ -333,8 +376,43 @@ function MiniExplorer ()  {
     <div className="flex flex-col bg-asidebg rounded-none w-full lg:w-max lg:rounded-xl p-8 font-body">
       <div className="text-3xl font-bold mb-5 font-title">Event History</div>
       {exampleEvents.map((event, index) => Phrasing(event, index))}
+
+      {/* Pagination Starts from Here */}
+      <div className="whitespace-pre-wrap mb-3 paginationClass" >
+      <ReactPaginate
+                    previousLabel={'<<'}
+                    nextLabel={'>>'}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    activeClassName={'active'}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+    
+                    initialPage={metaData.currentPage - 1}
+                    pageCount={metaData.pageCount}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={5}
+                    onPageChange={pagginationHandler}
+        />
+      </div>
+      
     </div>
+    
   )
+  
+}
+
+  //Fetching posts in get Intial Props to make the app seo friendly
+  Home.getInitialProps = async ({ query }) => {
+  const page = query.page || 1; //if page empty we request the first page
+    // This is ecxample site for picking up pagination
+  const posts = await axios.get(`https://gorest.co.in/public-api/posts?_format=json&access-token=cxzNs8fYiyxlk708IHfveKM1z1xxYZw99fYE&page=${page}`);
+  return {
+      totalCount: posts.data.meta.pagination.total,
+      pageCount: posts.data.meta.pagination.pages,
+      currentPage: posts.data.meta.pagination.page,
+      perPage: posts.data.meta.pagination.limit,
+  };
 }
 
 // 

@@ -15,6 +15,7 @@ module.exports = {
         bg: "#081828",
         text: "#efeff0"
       },
+      twitter: "#1da1f2",
 
       // purple: {
       //   100: "#230026",

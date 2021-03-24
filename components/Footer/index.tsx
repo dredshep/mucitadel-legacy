@@ -9,7 +9,7 @@ function MainLogo () {
 
 function Logo() {
   return (
-    <div className="flex flex-row items-center w-48 justify-between">
+    <div className="flex flex-row items-center w-48 justify-between mr-auto">
       <MainLogo />
       <div className="font-title text-xl font-bold tracking-wider">
         MU&nbsp;Citadel
@@ -46,7 +46,7 @@ export default function Footer() {
   return (
     <>
     <div className="sm:px-0 lg:px-10 xl:px-32 bg-asidebg mt-10">
-    <div className="flex flex-col max-w-full sm:max-w-2xl lg:max-w-full mx-auto sm:flex-row flex-wrap lg:flex-nowrap -m-5 mt-5 pt-5 pb-10 text-center sm:text-left ">
+    <div className="flex flex-col sm:max-w-2xl lg:max-w-max mx-auto sm:flex-row flex-wrap lg:flex-nowrap -m-5 mt-5 pt-5 pb-10 text-center sm:text-left ">
       <FooterElement>
         {/* <Title>Dank</Title> */}
         <div className="mb-3 flex flex-row justify-around"><Logo/></div>
