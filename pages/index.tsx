@@ -1,11 +1,10 @@
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Head from "next/head";
 import Cards2 from "../components/Cards2";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Toolbar from "../components/Toolbar";
-import Footer from "../components/Footer";
-import Head from 'next/head';
-
-
 
 function Content() {
   return (
@@ -19,8 +18,10 @@ function Content() {
   );
 }
 
-function MainLogo () {
-  return (<img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />)
+function MainLogo() {
+  return (
+    <img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />
+  );
 }
 
 function Logo() {
@@ -33,37 +34,17 @@ function Logo() {
     </div>
   );
 }
+faTimes;
 
 export default function Home() {
   return (
     <div className="App text-white bg-mainbg min-h-screen overflow-y-hidden font-body">
       <Head>
         <title>MU Citadel - the tree where memes grow</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <script src="/scripts.js" />
-
       </Head>
-      <div className="modal fade" id="cookieModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className="notice d-flex justify-content-between align-items-center">
-                <div className="cookie-text">We  &nbsp;use&nbsp;  🍪..  </div>
-                  <div className="buttons d-flex flex-column flex-lg-row">
-                    <a href="#a" className="btn learn-more btn-sm" data-dismiss="modal"> &nbsp; Learn More</a>
-                    <a href="#" className="btn learn-more btn-sm" id="closeModal" data-dismiss="modal">&nbsp;&nbsp;  X</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-      <NavBar sidebar={true}/>
+      <NavBar sidebar={true} />
       <Content />
-      <Footer/>
+      <Footer />
     </div>
-    
   );
-  
 }
-
