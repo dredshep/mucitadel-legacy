@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Paula",
+    "tier": "legendary",
+    "url": "paula.jpg",
+    "description": "The one and only Paula of Orchid. She's all care-free knowing that her privacy is safe with their VPN.",
+    "soul": 32,
+    "kcal": 2
+  },
+  {
+    "name": "Pete",
+    "tier": "unprecedented",
+    "url": "pete.jpg",
+    "description": "Carlos Matos needs your help! To help him out, please write down the first digits of your social security number.",
+    "soul": 42,
+    "kcal": 100
+  },
+  {
+    "name": "Ghost Buddies",
+    "tier": "legendary",
+    "url": "ghost buddies.jpg",
+    "description": "The one and only Paula of Orchid. She's all care-free knowing that her privacy is safe with their VPN.",
+    "soul": 12,
+    "kcal": 12
+  },
+  {
+    "name": "Epic Mia",
+    "tier": "titanic",
+    "url": "epic mia.jpg",
+    "description": "She may be cute, but she ain't going to give a damn about what you got to say to her.",
+    "soul": 52,
+    "kcal": 1
+  },
+  {
+    "name": "Baby Mia",
+    "tier": "nani",
+    "url": "baby mia.jpg",
+    "description": "Baby Mia receiving a blessing from the ruler of Mars, Elon Musk. All hail the cute Mia!",
+    "soul": 91,
+    "kcal": 3
+  },
+  {
+    "name": "Bunnies",
+    "tier": "epic",
+    "url": "bunnies.jpg",
+    "description": "Mia's friends from Orchid. Aren't they both so freaking cute? They also respect your privacy.",
+    "soul": 71,
+    "kcal": 4
+  }
+]
