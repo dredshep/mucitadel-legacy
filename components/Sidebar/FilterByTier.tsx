@@ -11,7 +11,7 @@ export default function FilterByTier() {
         </span>
       </div>
       {/* Items */}
-      <div className="pl-2 pt-4 text-left">
+      <div className="pl-2 pt-4 mb-20 text-left">
         <ol className="font-body">
           <Tiers />
         </ol>

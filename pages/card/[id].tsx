@@ -618,10 +618,10 @@ function Content() {
   );
 }
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className="App text-white bg-mainbg min-h-screen font-body">
-      <NavBar />
+      <NavBar sidebar={true} {...props} />
       <Content />
 
       <Footer />

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function FilterByPrice() {
   return (
-    <div className="screen flex flex-column items-start">
+    <div className="sticky flex flex-column items-start">
       <div>
         {/* Section title */}
         <div className="text-left pb-6 mt-5">
@@ -26,7 +26,7 @@ export default function FilterByPrice() {
             placeholder="Max"
           />
           <button className="shadow bg-mupurple w-auto flex justify-end items-center focus:outline-none text-white p-2 rounded-md">
-            <FontAwesomeIcon icon={faSearch} />            
+            <FontAwesomeIcon icon={faSearch} />
             {/* <i className="fas fa-search"></i> */}
           </button>
         </div>

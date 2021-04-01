@@ -1,13 +1,17 @@
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
+  faEllipsisV,
   faInfoCircle,
   faShareAlt,
-  faShoppingCart,
+  faShoppingCart
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import ActiveLink from "../ActiveLink";
+import Link from "../Link";
+import {
+  faHeart
+} from ;
 
 type SampleCard = {
   name: string;
@@ -57,17 +61,17 @@ export function Card2(props: SampleCard) {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, showPopdown);
   return (
-    <div key={props.name} className={props.className + " h-full relative"}>
-      <div className="rounded-3xl font-title bg-asidebg glow-on-hover">
+    <div key={props.name} className={props.className}>
+      <div className="rounded-3xl font-title bg-asidebg">
         {/* Title */}
-        <div className="bg-mupurple flex row items-center relative h-9 lg:h-10 rounded-t-3xl z-0">
-          <div className="text-base xlish:text-lg font-bold tracking-wider w-full flex justify-center">
+        <div className="bg-mupurple flex row items-center relative h-10 rounded-t-3xl">
+          <div className="text-base xlish:text-lg font-bold tracking-wider w-full flex justify-center absolute">
             {props.name}
           </div>
-          {/* <div
+          <div
             ref={wrapperRef}
             onClick={showPopdownCommand}
-            className="flex flex-column h-9 lg:h-10 w-12 justify-center items-center"
+            className="flex flex-column h-10 w-12 justify-center items-center ml-auto z-10"
           >
             <FontAwesomeIcon icon={faEllipsisV} className="cursor-pointer" />
             <div
@@ -86,10 +90,10 @@ export function Card2(props: SampleCard) {
                 Buy
               </Link>
             </div>
-          </div> */}
+          </div>
         </div>
         {/* Container for everything below the title */}
-        <div className="flex flex-row">
+        <div className="p-2 xlish:p-4 flex flex-row">
           {/* Image */}
           <div className="w-28 tiny:w-32 xlish:w-40 flex-shrink-0">
             <img
@@ -99,31 +103,31 @@ export function Card2(props: SampleCard) {
             />
           </div>
           {/* Metadata */}
-          <div className=" xlish:text-base w-40 tiny:w-44 xlish:w-56 px-2 xlish:px-4 flex flex-col justify-between py-4 xlish:py-6">
-            <div className="flex flex-row justify-between items-center">
-              <div className="font-title text-secondary text-xs md:text-sm font-semibold">
+          <div className="text-sm xlish:text-base w-40 tiny:w-44 xlish:w-56 pl-2 xlish:pl-4 flex flex-col justify-around">
+            <div className="flex flex-row justify-between">
+              <div className="font-title text-secondary text-sm font-semibold">
                 Trending Rating
               </div>
               <div className="font-base font-body">
                 {randomNumberBetween1and1000}
               </div>
             </div>
-            <div className="flex flex-row justify-between items-center">
-              <div className="font-title text-secondary text-xs md:text-sm font-semibold">
+            <div className="flex flex-row justify-between">
+              <div className="font-title text-secondary text-sm font-semibold">
                 Tier
               </div>
               <div className="font-base font-body">
                 {props.tier.charAt(0).toUpperCase() + props.tier.slice(1)}
               </div>
             </div>
-            <div className="flex flex-row justify-between items-center">
-              <div className="font-title text-secondary text-xs md:text-sm font-semibold">
+            <div className="flex flex-row justify-between">
+              <div className="font-title text-secondary text-sm font-semibold">
                 kcal
               </div>
               <div className="font-base font-body">{props.kcal}</div>
             </div>
-            <div className="flex flex-row justify-between items-center">
-              <div className="font-title text-secondary text-xs md:text-sm font-semibold">
+            <div className="flex flex-row justify-between">
+              <div className="font-title text-secondary text-sm font-semibold">
                 Price
               </div>
               <div className="font-base font-body">
@@ -135,20 +139,6 @@ export function Card2(props: SampleCard) {
               <div className="font-base">$420.69</div>
             </div> */}
           </div>
-        </div>
-        <div className="flex list-none bg-mupurple rounded-b-3xl h-9 lg:h-10">
-          <li className="w-full h-full flex items-center justify-center">
-            <FontAwesomeIcon icon={faInfoCircle} />
-          </li>
-          <li className="w-full h-full flex items-center justify-center">
-            <FontAwesomeIcon icon={faShareAlt} />
-          </li>
-          <li className="w-full h-full flex items-center justify-center">
-            <FontAwesomeIcon icon={faHeart} />
-          </li>
-          <li className="w-full h-full flex items-center justify-center font-bold font-title">
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </li>
         </div>
       </div>
     </div>

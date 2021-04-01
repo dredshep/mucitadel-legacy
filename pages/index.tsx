@@ -10,7 +10,7 @@ function Content() {
   return (
     <div className="flex flex-row h-full">
       <Sidebar />
-      <div className="inline-flex flex-col box-border">
+      <div className="inline-flex flex-col box-border w-full">
         <Toolbar />
         <Cards2 />
       </div>
@@ -36,13 +36,17 @@ function Logo() {
 }
 faTimes;
 
-export default function Home() {
+export default function Home(props: {
+  logIn: LogIn;
+  logOut: LogOut;
+  authData: AuthData;
+}) {
   return (
     <div className="App text-white bg-mainbg min-h-screen overflow-y-hidden font-body">
       <Head>
         <title>MU Citadel - the tree where memes grow</title>
       </Head>
-      <NavBar sidebar={true} />
+      <NavBar sidebar={true} {...props} />
       <Content />
       <Footer />
     </div>
