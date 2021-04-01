@@ -276,11 +276,11 @@ function RelatedSection(props: { cards: SampleCard[] }) {
   const cards = (
     <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border overflow-hidden">
       <div>
-        <Card2 {...props.cards[1]} />
+        <Card2 {...props.cards[1]} href="/card/1" />
       </div>
       <div className="w-10 h-10 flex-shrink-0"></div>
       <div>
-        <Card2 {...props.cards[2]} />
+        <Card2 {...props.cards[2]} href="/card/2" />
       </div>
     </div>
   );

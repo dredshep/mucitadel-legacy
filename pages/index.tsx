@@ -5,6 +5,11 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Toolbar from "../components/Toolbar";
+import {
+  AuthData,
+  LogIn,
+  LogOut,
+} from "../components/types/AuthenticationProvider";
 
 function Content() {
   return (

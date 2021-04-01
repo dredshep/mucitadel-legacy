@@ -7,6 +7,11 @@ import ReactTimeAgo from "react-time-ago";
 import { Card2 } from "../components/Cards2";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import {
+  AuthData,
+  LogIn,
+  LogOut,
+} from "../components/types/AuthenticationProvider";
 
 type NoLinkPair = {
   pairKey: string;
@@ -615,10 +620,14 @@ function Content() {
   );
 }
 
-export default function Home() {
+export default function Home(props: {
+  logIn: LogIn;
+  logOut: LogOut;
+  authData: AuthData;
+}) {
   return (
     <div className="App text-white bg-mainbg min-h-screen font-body">
-      <NavBar />
+      <NavBar {...props} />
       <Content />
 
       <Footer />

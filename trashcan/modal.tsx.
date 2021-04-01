@@ -1,10 +1,14 @@
+import Head from "next/head";
 import Cards2 from "../components/Cards2";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Toolbar from "../components/Toolbar";
-import Footer from "../components/Footer";
-import Head from 'next/head'
-
+import {
+  AuthData,
+  LogIn,
+  LogOut,
+} from "../components/types/AuthenticationProvider";
 
 function Content() {
   return (
@@ -18,8 +22,10 @@ function Content() {
   );
 }
 
-function MainLogo () {
-  return (<img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />)
+function MainLogo() {
+  return (
+    <img src="/images/White Mask.png" className="h-10" alt="MemeUnity Logo" />
+  );
 }
 
 function Logo() {
@@ -35,22 +41,24 @@ function Logo() {
 // make body position fixed
 // make overlay absolute xy 100%. ??
 // make modal absolute. maybe flex centered
-function modal () {
-  return (
-    <div className=""></div>
-  )
+function modal() {
+  return <div className=""></div>;
 }
 
-export default function Home() {
+export default function Home(props: {
+  logIn: LogIn;
+  logOut: LogOut;
+  authData: AuthData;
+}) {
   return (
     <div className="App text-white bg-mainbg min-h-screen overflow-y-hidden font-body">
       <Head>
         <title>MU Citadel - the tree where memes grow</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <NavBar sidebar={true}/>
+      <NavBar sidebar={true} {...props} />
       <Content />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
