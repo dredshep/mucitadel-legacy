@@ -1,17 +1,15 @@
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
   faEllipsisV,
   faInfoCircle,
   faShareAlt,
-  faShoppingCart
+  faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import ActiveLink from "../ActiveLink";
 import Link from "../Link";
-import {
-  faHeart
-} from ;
 
 type SampleCard = {
   name: string;
