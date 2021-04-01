@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/cards.js": {
+    "pages/api/cards.js": {
       "includeFiles": "assets/**"
     }
   }
