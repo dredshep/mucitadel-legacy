@@ -274,7 +274,7 @@ function RelatedSection(props: { cards: SampleCard[] }) {
     </div>
   );
   const cards = (
-    <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border overflow-hidden">
+    <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border">
       <div>
         <Card2 {...props.cards[1]} href="/card/1" />
       </div>
@@ -402,15 +402,15 @@ function MiniExplorer(props) {
     perPage: 4,
   };
 
-  const pagginationHandler = (page) => {
+  const paginationHandler = (page) => {
     // Will uncomment this once the API for event segregation is added
     // const currentPath = props.router.pathname;
-    //         const currentQuery = props.router.query;
-    //         currentQuery.page = page.selected + 1;
-    //         props.router.push({
-    //             pathname: currentPath,
-    //             query: currentQuery,
-    //         });
+    // const currentQuery = props.router.query;
+    // currentQuery.page = page.selected + 1;
+    // props.router.push({
+    //     pathname: currentPath,
+    //     query: currentQuery,
+    // });
   };
   type Event = {
     totalCount: number;
@@ -523,7 +523,7 @@ function MiniExplorer(props) {
           pageCount={metaData.pageCount}
           marginPagesDisplayed={1}
           pageRangeDisplayed={5}
-          onPageChange={pagginationHandler}
+          onPageChange={paginationHandler}
         />
       </div>
     </div>
@@ -531,12 +531,22 @@ function MiniExplorer(props) {
 }
 
 //Fetching posts in get Intial Props to make the app seo friendly
-Home.getInitialProps = async ({ query }) => {
+Home.getInitialProps = async ({ req, query }) => {
+  const log = (v) => (console.log(v), v);
   const page = query.page || 1; //if page empty we request the first page
   // This is ecxample site for picking up pagination
-  const posts = await axios.get(
-    `https://gorest.co.in/public-api/posts?_format=json&access-token=cxzNs8fYiyxlk708IHfveKM1z1xxYZw99fYE&page=${page}`
-  );
+  // const posts = await axios.get(
+  //   `https://gorest.co.in/public-api/posts?_format=json&access-token=cxzNs8fYiyxlk708IHfveKM1z1xxYZw99fYE&page=${page}`
+  // );
+  // console.log(req.rawHeaders);
+  // console.log(Object.keys(req), Object.keys(req.headers));
+  const baseURl = req
+    ? log((req.headers.protocol || "http") + "://" + req.headers.host) // + req.url)
+    : window.location.protocol +
+      "//" +
+      window.location.hostname +
+      (window.location.port ? ":" + window.location.port : "");
+  const posts = await axios.get(baseURl + `/api/posts?page=${page}`);
   return {
     totalCount: posts.data.meta.pagination.total,
     pageCount: posts.data.meta.pagination.pages,

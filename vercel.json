@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/cards.js": {
+      "includeFiles": "assets/**"
+    }
+  }
+}
