@@ -309,17 +309,20 @@ function Product2(props: SampleCard) {
 
   return (
     <div className="flex flex-row px-5 pb-5 md:py-0 md:px-0 space-x-0 md:space-x-5 bg-asidebg rounded-none md:rounded-xl mt-0 md:mt-10 w-full max-w-lg md:max-w-3xl mx-auto">
-      <div className="hidden md:flex w-80 flex-shrink-0">
-        <img className="w-full" src={"/images/cards/" + props.url} />
+      <div className="hidden md:flex flex-shrink-0" style={{ width: "45%" }}>
+        <img className="object-contain" src={"/images/cards/" + props.url} />
       </div>
       <div className="w-full">
         <div className="flex flex-row items-center mt-5">
-          <div className="w-20 xs:w-20 flex-shrink-0 mr-3 md:hidden">
-            <img className="w-full" src={"/images/" + props.url} />
+          <div className="w-24 xs:w-24 flex-shrink-0 mr-3 md:hidden">
+            <img
+              className="w-full object-cover"
+              src={"/images/cards/" + props.url}
+            />
           </div>
           <div>
             <div className="text-success font-semibold text-lg leading-3 font-body">
-              #1031
+              Market Rank: 137
             </div>
             <div className="mt-8 text-white font-bold text-2xl xs:text-4xl leading-9 font-title">
               {props.name}
@@ -631,7 +634,7 @@ function Content() {
 export default function Home(props) {
   return (
     <div className="App text-white bg-mainbg min-h-screen font-body">
-      <NavBar sidebar={true} {...props} />
+      <NavBar {...props} />
       <Content />
 
       <Footer />

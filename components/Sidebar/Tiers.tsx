@@ -1,22 +1,13 @@
 function TierIcon(props: { path: string; tier: string }) {
   return (
-    <div className="h-10 w-10 flex justify-around items-center mr-5">
+    <div className="h-12 w-12 flex justify-around items-center mr-5">
       <img src={props.path} alt={props.tier} />
     </div>
   );
 }
 
 export default function Tiers() {
-  const tiers = [
-    "Common",
-    "Uncommon",
-    "Epic",
-    "Legendary",
-    "Unprecedented",
-    "Godlike",
-    "Titanic",
-    "Nani",
-  ];
+  const tiers = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Nani"];
   return (
     <>
       {tiers.map((tier, i) => {

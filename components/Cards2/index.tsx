@@ -50,7 +50,7 @@ export function Card2(props: SampleCard & { href: string }) {
   return (
     <div key={props.name} className={props.className + " h-full relative"}>
       <ActiveLink href={props.href}>
-        <div className="rounded-3xl font-title bg-asidebg glow-on-hover">
+        <div className="rounded-3xl font-title glow-on-hover">
           {/* Title */}
           <div className="bg-mupurple flex row items-center relative h-9 lg:h-10 rounded-t-3xl z-0">
             <div className="text-base xlish:text-lg font-bold tracking-wider w-full flex justify-center">
@@ -58,7 +58,7 @@ export function Card2(props: SampleCard & { href: string }) {
             </div>
           </div>
           {/* Container for everything below the title */}
-          <div className="flex flex-row">
+          <div className="flex flex-row bg-asidebg">
             {/* Image */}
             <div className="w-28 tiny:w-32 xlish:w-40 flex-shrink-0">
               <img
@@ -68,7 +68,7 @@ export function Card2(props: SampleCard & { href: string }) {
               />
             </div>
             {/* Metadata */}
-            <div className=" xlish:text-base w-40 tiny:w-44 xlish:w-56 px-2 xlish:px-4 flex flex-col justify-between py-4 xlish:py-6">
+            <div className="text-base w-40 tiny:w-44 xlish:w-56 px-2 xlish:px-4 flex flex-col justify-between py-4 xlish:py-6">
               <div className="flex flex-row justify-between items-center">
                 <div className="font-title text-secondary text-xs md:text-sm font-semibold">
                   Trending Rating
@@ -141,7 +141,7 @@ export default function Cards2() {
     //   {[...Array(12).keys()].map(() => Card2)}
     // </div>
     <Container>
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="flex flex-row flex-wrap justify-center mx-auto tiny:-ml-5">
         {cards.map((sampleCard, i) => (
           // <ActiveLink href={"/card/" + i} key={sampleCard.name}>
           <Card2

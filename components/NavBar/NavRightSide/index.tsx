@@ -1,5 +1,9 @@
 import { faBell, faPlusSquare } from "@fortawesome/free-regular-svg-icons";
-import { faChartLine, faTh } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChartLine,
+  faSignInAlt,
+  faTh,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { AuthData, LogIn, LogOut } from "../../types/AuthenticationProvider";
@@ -44,7 +48,12 @@ export default function NavRightSide(props: {
         }
         onClick={showLoginModalCommand}
       >
-        Login
+        {/* desktop */}
+        <span className="hidden lg:flex">Login</span>
+        {/* mobile */}
+        <span className="flex lg:hidden">
+          <FontAwesomeIcon icon={faSignInAlt} />
+        </span>
       </div>
       <PopDown
         {...{
