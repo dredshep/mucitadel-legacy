@@ -274,7 +274,7 @@ function RelatedSection(props: { cards: SampleCard[] }) {
     </div>
   );
   const cards = (
-    <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border overflow-hidden">
+    <div className="flex flex-col md:flex-row mx-auto justify-center w-max md:w-full box-border">
       <div>
         <Card2 {...props.cards[1]} href="/card/1" />
       </div>
@@ -309,17 +309,20 @@ function Product2(props: SampleCard) {
 
   return (
     <div className="flex flex-row px-5 pb-5 md:py-0 md:px-0 space-x-0 md:space-x-5 bg-asidebg rounded-none md:rounded-xl mt-0 md:mt-10 w-full max-w-lg md:max-w-3xl mx-auto">
-      <div className="hidden md:flex w-80 flex-shrink-0">
-        <img className="w-full" src={"/images/cards/" + props.url} />
+      <div className="hidden md:flex flex-shrink-0" style={{ width: "45%" }}>
+        <img className="object-contain" src={"/images/cards/" + props.url} />
       </div>
       <div className="w-full">
         <div className="flex flex-row items-center mt-5">
-          <div className="w-20 xs:w-20 flex-shrink-0 mr-3 md:hidden">
-            <img className="w-full" src={"/images/" + props.url} />
+          <div className="w-24 xs:w-24 flex-shrink-0 mr-3 md:hidden">
+            <img
+              className="w-full object-cover"
+              src={"/images/cards/" + props.url}
+            />
           </div>
           <div>
             <div className="text-success font-semibold text-lg leading-3 font-body">
-              #1031
+              Market Rank: 137
             </div>
             <div className="mt-8 text-white font-bold text-2xl xs:text-4xl leading-9 font-title">
               {props.name}
@@ -402,15 +405,15 @@ function MiniExplorer(props) {
     perPage: 4,
   };
 
-  const pagginationHandler = (page) => {
+  const paginationHandler = (page) => {
     // Will uncomment this once the API for event segregation is added
     // const currentPath = props.router.pathname;
-    //         const currentQuery = props.router.query;
-    //         currentQuery.page = page.selected + 1;
-    //         props.router.push({
-    //             pathname: currentPath,
-    //             query: currentQuery,
-    //         });
+    // const currentQuery = props.router.query;
+    // currentQuery.page = page.selected + 1;
+    // props.router.push({
+    //     pathname: currentPath,
+    //     query: currentQuery,
+    // });
   };
   type Event = {
     totalCount: number;
@@ -523,7 +526,7 @@ function MiniExplorer(props) {
           pageCount={metaData.pageCount}
           marginPagesDisplayed={1}
           pageRangeDisplayed={5}
-          onPageChange={pagginationHandler}
+          onPageChange={paginationHandler}
         />
       </div>
     </div>
@@ -531,12 +534,22 @@ function MiniExplorer(props) {
 }
 
 //Fetching posts in get Intial Props to make the app seo friendly
-Home.getInitialProps = async ({ query }) => {
+Home.getInitialProps = async ({ req, query }) => {
+  const log = (v) => (console.log(v), v);
   const page = query.page || 1; //if page empty we request the first page
   // This is ecxample site for picking up pagination
-  const posts = await axios.get(
-    `https://gorest.co.in/public-api/posts?_format=json&access-token=cxzNs8fYiyxlk708IHfveKM1z1xxYZw99fYE&page=${page}`
-  );
+  // const posts = await axios.get(
+  //   `https://gorest.co.in/public-api/posts?_format=json&access-token=cxzNs8fYiyxlk708IHfveKM1z1xxYZw99fYE&page=${page}`
+  // );
+  // console.log(req.rawHeaders);
+  // console.log(Object.keys(req), Object.keys(req.headers));
+  const baseURl = req
+    ? log((req.headers.protocol || "http") + "://" + req.headers.host) // + req.url)
+    : window.location.protocol +
+      "//" +
+      window.location.hostname +
+      (window.location.port ? ":" + window.location.port : "");
+  const posts = await axios.get(baseURl + `/api/posts?page=${page}`);
   return {
     totalCount: posts.data.meta.pagination.total,
     pageCount: posts.data.meta.pagination.pages,
@@ -621,7 +634,7 @@ function Content() {
 export default function Home(props) {
   return (
     <div className="App text-white bg-mainbg min-h-screen font-body">
-      <NavBar sidebar={true} {...props} />
+      <NavBar {...props} />
       <Content />
 
       <Footer />

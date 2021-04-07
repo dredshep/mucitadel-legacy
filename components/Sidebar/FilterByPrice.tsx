@@ -16,12 +16,12 @@ export default function FilterByPrice() {
         <div className="flex justify-around mb-6">
           {/*removed from min/max/button/search: focus:outline-black*/}
           <input
-            className="shadow w-1/3 rounded p-2 bg-inputbg text-center focus:outline-none"
+            className="shadow w-1/3 rounded p-2 bg-inputbg focus:bg-inputbg-focus hover:bg-inputbg-hover transition-colors duration-75 text-center focus:outline-none"
             type="text"
             placeholder="Min"
           />
           <input
-            className="shadow w-1/3 rounded p-2 bg-inputbg text-center focus:outline-none"
+            className="shadow w-1/3 rounded p-2 bg-inputbg focus:bg-inputbg-focus hover:bg-inputbg-hover transition-colors duration-75 text-center focus:outline-none"
             type="text"
             placeholder="Max"
           />

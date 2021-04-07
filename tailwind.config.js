@@ -3,19 +3,30 @@ module.exports = {
   theme: {
     colors: {
       mainbg: "#0e0f1f",
+      "mainbg-hover": "#15162e",
       asidebg: "#1b112b",
+      "asidebg-hover": "#27193e",
       inputbg: "#231a2b",
+      "inputbg-focus": "#120d16", // "#1a1320",
+      "inputbg-hover": "#2f2239",
       mupurple: "#9b50ff",
+      "mupurple-hover": "#892eff",
+      "mupurple-active": "#6e00ff",
       phantasmablue: "#17b1e8",
+      "phantasmablue-hover": "#149bcc",
       kcalred: "#cf0000",
       white: "#f2f2f2",
       success: "#577c48",
       secondary: "#a58eb9",
+      "secondary-hover": "#b4a1c4",
       metamask: {
         bg: "#081828",
+        "bg-hover": "#0d2944",
         text: "#efeff0",
+        "text-hover": "#f7f7f8",
       },
       twitter: "#1da1f2",
+      "twitter-hover": "#0d91e3",
 
       // purple: {
       //   100: "#230026",
@@ -74,7 +85,9 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["active"],
+    },
   },
   plugins: [],
 };
