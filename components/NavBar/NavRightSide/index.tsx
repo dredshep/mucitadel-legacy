@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Explained from "../../Explainer/Explained";
 import { AuthData, LogIn, LogOut } from "../../types/AuthenticationProvider";
 import LoginModal from "../LoginModal";
 import PopDown from "../PopDown";
@@ -18,7 +19,7 @@ export default function NavRightSide(props: {
   const [loginModalIsVisible, showLoginModal] = React.useState(false);
   const showLoginModalCommand = () => showLoginModal(!loginModalIsVisible);
   return (
-    <div className="text-xl ml-auto lg:ml-0 flex space-x-8 items-center mr-3">
+    <div className="text-xl ml-auto lg:ml-0 flex mr-3 h-full">
       <div
         className={
           !loginModalIsVisible
@@ -30,16 +31,24 @@ export default function NavRightSide(props: {
       <LoginModal
         {...{ showLoginModalCommand, loginModalIsVisible, logIn: props.logIn }}
       />
-      <FontAwesomeIcon
-        icon={faPlusSquare}
-        className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
-      />
-      <FontAwesomeIcon icon={faTh} className="lg:flex hidden" />
-      <FontAwesomeIcon
-        icon={faBell}
-        className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
-      />
-      <FontAwesomeIcon icon={faChartLine} className="lg:flex hidden" />
+      <Explained explanation="Add NFT">
+        <FontAwesomeIcon
+          icon={faPlusSquare}
+          className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
+        />
+      </Explained>
+      <Explained explanation="Catalogue">
+        <FontAwesomeIcon icon={faTh} className="lg:flex hidden" />
+      </Explained>
+      <Explained explanation="Notifications">
+        <FontAwesomeIcon
+          icon={faBell}
+          className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
+        />
+      </Explained>
+      <Explained explanation="Stats">
+        <FontAwesomeIcon icon={faChartLine} className="lg:flex hidden" />
+      </Explained>
       <div
         className={
           props.authData?.address
@@ -52,7 +61,9 @@ export default function NavRightSide(props: {
         <span className="hidden lg:flex">Login</span>
         {/* mobile */}
         <span className="flex lg:hidden">
-          <FontAwesomeIcon icon={faSignInAlt} />
+          <Explained explanation="Options">
+            <FontAwesomeIcon icon={faSignInAlt} />
+          </Explained>
         </span>
       </div>
       <PopDown

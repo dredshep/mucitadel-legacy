@@ -16,6 +16,8 @@ module.exports = {
       "phantasmablue-hover": "#149bcc",
       kcalred: "#cf0000",
       white: "#f2f2f2",
+      "white-hover": "#ddd",
+      "white-active": "#cdcdcd",
       success: "#577c48",
       secondary: "#a58eb9",
       "secondary-hover": "#b4a1c4",
@@ -27,6 +29,8 @@ module.exports = {
       },
       twitter: "#1da1f2",
       "twitter-hover": "#0d91e3",
+      explanation1: "#080310",
+      explanation2: "#3f2255",
 
       // purple: {
       //   100: "#230026",

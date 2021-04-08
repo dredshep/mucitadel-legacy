@@ -55,7 +55,7 @@ export default function Sidebar() {
           (sidebarIsHidden
             ? "hidden lg:flex lg:relative"
             : "flex absolute lg:relative") +
-          " flex-shrink-0 flex-grow-0 min-h-screen max-h-full bg-asidebg p-4 overflow-y-auto z-10 overflow-x-hidden no-scrollbar"
+          " flex-shrink-0 flex-grow-0 min-h-screen max-h-full bg-asidebg py-4 overflow-y-auto z-10 overflow-x-hidden no-scrollbar"
         }
       >
         <div

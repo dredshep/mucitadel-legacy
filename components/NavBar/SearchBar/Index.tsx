@@ -1,5 +1,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import Button from "../../styled/Button";
 
 export default function SearchBar(props) {
   return (
@@ -14,9 +16,12 @@ export default function SearchBar(props) {
         type="text"
         placeholder="Search..."
       />
-      <button className="bg-mupurple w-auto flex justify-end items-center text-white p-2 focus:outline-none focus:ring-offset-mupurple rounded-r-md">
+      <Button className="pl-2 pr-2 rounded-l-none rounded-r-md">
         <FontAwesomeIcon icon={faSearch} />
-      </button>
+      </Button>
+      {/* <button className="bg-mupurple w-auto flex justify-end items-center text-white p-2 focus:outline-none focus:ring-offset-mupurple rounded-r-md">
+        <FontAwesomeIcon icon={faSearch} />
+      </button> */}
     </div>
   );
 }

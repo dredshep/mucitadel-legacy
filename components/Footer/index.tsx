@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "../styled/Button";
 
 function MainLogo() {
   return (
@@ -205,9 +206,7 @@ export default function Footer() {
                 type="email"
                 placeholder="email"
               />
-              <button className="bg-mupurple hover:bg-mupurple-hover active:bg-mupurple-active cursor-pointer select-none px-4 py-2 rounded-lg shadow-md mt-2 w-full font-semibold focus:outline-none">
-                Stay in the loop
-              </button>
+              <Button className="mt-2 w-full">Stay in the loop</Button>
             </div>
           </FooterElement>
         </div>

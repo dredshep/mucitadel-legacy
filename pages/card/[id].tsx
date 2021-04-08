@@ -8,6 +8,8 @@ import ReactTimeAgo from "react-time-ago";
 import { Card2 } from "../../components/Cards2";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
+import Button from "../../components/styled/Button";
+import WhiteButton from "../../components/styled/WhiteButton";
 
 type NoLinkPair = {
   pairKey: string;
@@ -379,7 +381,13 @@ function Product2(props: SampleCard) {
           <div className="w-1/2 md:w-auto px-6 rounded-full bg-white text-mupurple flex justify-around items-center ml-0 md:ml-6"><div className="pt-1 pb-1 md:pt-1 md:pb-1.5 leading-loose align-middle">Buy</div></div>
           <div className="w-1/2 md:w-auto px-6 rounded-full bg-mupurple text-white flex justify-around items-center"><div className="pt-1 pb-1 md:pt-1 md:pb-1.5 leading-loose align-middle">Add to wishlist</div></div>
         </div> */}
-          <div className="flex flex-row font-semibold text-sm xs:text-xl justify-start md:justify-center space-x-2 xs:space-x-5  my-4 w-full">
+          <div className="flex row w-full mt-6 md:mt-4">
+            <WhiteButton className="w-full text-lg">Buy</WhiteButton>
+            <Button className="w-full ml-4 mr-4 text-lg">
+              Add to wishlist
+            </Button>
+          </div>
+          {/* <div className="flex flex-row font-semibold text-sm xs:text-xl justify-start md:justify-center space-x-2 xs:space-x-5  my-4 w-full">
             <div className="w-1/2 md:w-auto px-3 tiny:px-6 rounded-full bg-white text-mupurple flex justify-around items-center ml-0 md:ml-6">
               <div className="pt-1 pb-1 md:pt-1 md:pb-1 leading-loose align-middle">
                 Buy
@@ -390,7 +398,7 @@ function Product2(props: SampleCard) {
                 Add to wishlist
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

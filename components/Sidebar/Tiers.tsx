@@ -13,7 +13,10 @@ export default function Tiers() {
       {tiers.map((tier, i) => {
         const tierFileName = `/images/tiers/${i + 1} ${tier.toLowerCase()}.png`;
         return (
-          <li className="flex flex-row items-center mb-2 font-semibold" key={i}>
+          <li
+            className="px-5 flex flex-row items-center pt-1 pb-1 font-semibold hover:bg-asidebg-hover cursor-pointer"
+            key={i}
+          >
             <TierIcon path={tierFileName} tier={tier} />
             <div>{tier}</div>
           </li>

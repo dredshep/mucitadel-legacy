@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef } from "react";
+import Explained from "../../Explainer/Explained";
 import { AuthData, LogOut } from "../../types/AuthenticationProvider";
 
 // Close Popdown/Popup when click outside.
@@ -78,7 +79,9 @@ export default function PopDown(props: {
       onClick={showPopdownCommand}
       className={props.isLoggedIn ? "flex flex-column" : "hidden"}
     >
-      <FontAwesomeIcon icon={faUserCircle} className="cursor-pointer" />
+      <Explained explanation="Options">
+        <FontAwesomeIcon icon={faUserCircle} className="cursor-pointer" />
+      </Explained>
       <div
         className={
           (popdownIsVisible ? "absolute" : "hidden") +
