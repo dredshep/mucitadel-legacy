@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Explained from "../../Explainer/Explained";
+import Button from "../../styled/Button";
 import { AuthData, LogIn, LogOut } from "../../types/AuthenticationProvider";
 import LoginModal from "../LoginModal";
 import PopDown from "../PopDown";
@@ -31,29 +32,30 @@ export default function NavRightSide(props: {
       <LoginModal
         {...{ showLoginModalCommand, loginModalIsVisible, logIn: props.logIn }}
       />
-      <Explained explanation="Add NFT">
-        <FontAwesomeIcon
-          icon={faPlusSquare}
-          className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
-        />
+      <Explained
+        explanation="Add NFT"
+        className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
+      >
+        <FontAwesomeIcon icon={faPlusSquare} />
       </Explained>
-      <Explained explanation="Catalogue">
-        <FontAwesomeIcon icon={faTh} className="lg:flex hidden" />
+      <Explained explanation="Catalogue" className="lg:flex hidden">
+        <FontAwesomeIcon icon={faTh} />
       </Explained>
-      <Explained explanation="Notifications">
-        <FontAwesomeIcon
-          icon={faBell}
-          className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
-        />
+      <Explained
+        explanation="Notifications"
+        className={`hidden${props.authData?.address ? " lg:flex" : ""}`}
+      >
+        <FontAwesomeIcon icon={faBell} />
       </Explained>
-      <Explained explanation="Stats">
-        <FontAwesomeIcon icon={faChartLine} className="lg:flex hidden" />
+      <Explained explanation="Stats" className="lg:flex hidden">
+        <FontAwesomeIcon icon={faChartLine} />
       </Explained>
-      <div
+      {/* cursor-pointer bg-mupurple py-4 px-4 rounded-full text-xl  font-title tracking-wide font-semibold leading-3 h-11 */}
+      <Button
         className={
           props.authData?.address
             ? "hidden"
-            : "cursor-pointer bg-mupurple py-4 px-4 rounded-full text-xl  font-title tracking-wide font-semibold leading-3"
+            : "text-lg font-title self-center lg:ml-4 pl-2 pr-2 lg:pl-4 lg:pr-4"
         }
         onClick={showLoginModalCommand}
       >
@@ -61,11 +63,11 @@ export default function NavRightSide(props: {
         <span className="hidden lg:flex">Login</span>
         {/* mobile */}
         <span className="flex lg:hidden">
-          <Explained explanation="Options">
-            <FontAwesomeIcon icon={faSignInAlt} />
-          </Explained>
+          {/* <Explained explanation="Options"> */}
+          <FontAwesomeIcon icon={faSignInAlt} />
+          {/* </Explained> */}
         </span>
-      </div>
+      </Button>
       <PopDown
         {...{
           isLoggedIn: props.authData?.address,

@@ -21,7 +21,7 @@ export default function LoginModal(props: {
           : "fixed origin-top-left top-0 left-0 z-20 h-screen w-screen"
       }
     >
-      <div className="flex items-center justify-around h-full">
+      <div className="flex items-center justify-around h-full mx-10">
         <div className="bg-mainbg rounded-xl max-w-lg w-full overflow-hidden">
           <div className="text-title text-secondary text-lg font-semibold justify-around">
             <div className="w-full flex justify-between">
