@@ -2,13 +2,14 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import ReactTimeAgo from "react-time-ago";
 import { Card2 } from "../../components/Cards2";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 import Button from "../../components/styled/Button";
+import Link from "../../components/styled/Link";
 import WhiteButton from "../../components/styled/WhiteButton";
 
 type NoLinkPair = {
@@ -25,13 +26,13 @@ type LinkPair = {
   info?: string;
 };
 
-function Link(props: { href: string; text: string }) {
-  return (
-    <a className="text-mupurple" href={props.href}>
-      {props.text}
-    </a>
-  );
-}
+// function Link(props: { href: string; text: string }) {
+//   return (
+//     <a className="text-mupurple" href={props.href}>
+//       {props.text}
+//     </a>
+//   );
+// }
 
 function ExternalMarker(props: { href: string }) {
   return (
@@ -102,12 +103,15 @@ function KeyValue(props: NoLinkPair | LinkPair) {
 
   const valueElement = (props as LinkPair).link ? (
     (props as LinkPair).external ? (
-      <Link href={(props as LinkPair).link} text={(props as LinkPair).value} />
+      <Link
+        href={(props as LinkPair).link}
+        children={(props as LinkPair).value}
+      />
     ) : (
       <>
         <Link
           href={(props as LinkPair).link}
-          text={(props as LinkPair).value}
+          children={(props as LinkPair).value}
         />{" "}
         <ExternalMarker href={(props as LinkPair).link} />
       </>
@@ -361,7 +365,7 @@ function Product2(props: SampleCard) {
               <div className="flex flex-row justify-between font-body">
                 <div className={keyTextClass}>Owner</div>
                 <div className="text-white">
-                  <a className="text-mupurple">moonsawyer1331</a>
+                  <Link className="text-mupurple">moonsawyer1331</Link>
                 </div>
               </div>
               {/* Row 2 */}
@@ -497,20 +501,20 @@ function MiniExplorer(props) {
 
     return (
       <div className="whitespace-pre-wrap mb-3" key={key}>
-        <a
+        <Link
           className="text-mupurple"
           href={"https://ghostmarket.io/account/pha/" + event.account}
         >
           {event.username}
-        </a>{" "}
+        </Link>{" "}
         {event.type}
         {joiner}
-        <a
+        <Link
           className="text-mupurple ml-auto"
           href={"https://https://explorer.phantasma.io/tx/" + event.transaction}
         >
           <ReactTimeAgo date={event.date} locale="en-US" />
-        </a>
+        </Link>
       </div>
     );
   }

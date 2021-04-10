@@ -9,7 +9,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import Button from "../styled/Button";
+import Link from "../styled/Link";
 
 function MainLogo() {
   return (
@@ -83,46 +85,36 @@ export default function Footer() {
             <Title>Additional Links</Title>
             <ul className="text-mupurple">
               <li>
-                <FontAwesomeIcon icon={faLink} />
-                <a
-                  href="https://memeunity.com/#roadmap"
-                  target="_blank"
-                  className="ml-3"
-                >
+                <Link href="https://memeunity.com/#roadmap" target="_blank">
+                  <FontAwesomeIcon icon={faLink} className="mr-3" />
                   Roadmap
-                </a>
+                </Link>
               </li>
               <li>
-                <FontAwesomeIcon icon={faLink} />
-                <a
+                <Link
                   href="https://docs.google.com/document/d/1hzSz46MQm8Bn4ytWL4Op-LPDWfV7w_NYDMOxTYqFYSs/edit?usp=sharing"
                   target="_blank"
-                  className="ml-3"
                 >
+                  <FontAwesomeIcon icon={faLink} className="mr-3" />
                   Tokenomics
-                </a>
+                </Link>
                 ?
               </li>
               <li>
-                <FontAwesomeIcon icon={faLink} />
-                <a
+                <Link
                   href="https://docs.google.com/document/d/1-GLSxMDTp29buL8rljzrCB7k6lw8mU4FcIrTpcu_pYM/edit?usp=sharing"
                   target="_blank"
-                  className="ml-3"
                 >
+                  <FontAwesomeIcon icon={faLink} className="mr-3" />
                   Whitepaper
-                </a>
+                </Link>
                 ?
               </li>
               <li>
-                <FontAwesomeIcon icon={faLink} />
-                <a
-                  href="https://www.phantasma.io/wallets"
-                  target="_blank"
-                  className="ml-3"
-                >
+                <Link href="https://www.phantasma.io/wallets" target="_blank">
+                  <FontAwesomeIcon icon={faLink} className="mr-3" />
                   Phantasma Wallet
-                </a>
+                </Link>
               </li>
             </ul>
           </FooterElement>
