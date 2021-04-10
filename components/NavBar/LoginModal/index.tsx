@@ -18,12 +18,12 @@ export default function LoginModal(props: {
       className={
         !props.loginModalIsVisible
           ? "hidden"
-          : "fixed origin-top-left top-0 left-0 z-20 h-screen w-screen"
+          : "fixed origin-top-left top-0 left-0 z-20 h-screen w-full"
       }
     >
-      <div className="flex items-center justify-around h-full mx-10">
-        <div className="bg-mainbg rounded-xl max-w-lg w-full overflow-hidden">
-          <div className="text-title text-secondary text-lg font-semibold justify-around">
+      <div className="flex items-center justify-center h-full w-full">
+        <div className="bg-mainbg rounded-xl w-full overflow-hidden max-w-max">
+          <div className="text-title text-secondary text-lg font-semibold justify-around max-w-max">
             <div className="w-full flex justify-between">
               <div className="px-10 flex justify-around items-center">
                 Choose your login method:
